@@ -4,12 +4,48 @@
 <header>
 <div class="heading">
 	<h1>this website was all made by clayton for taneesha </h1>
-</div>
 	<link rel="stylesheet" href="stylesheet.css">
+	<br>
+    	 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 </header>
 <body>
 <br>
- <button id="triggerButton">Trigger Action</button>
+<h1>Send "Hi" to Discord!</h1>
+    <button id="discordButton">Send Hi!</button>
+
+    <script>
+        // Function to send a POST request to the Discord webhook
+        function sendWebhook() {
+            var webhookUrl = "YOUR_WEBHOOK_URL_HERE";
+
+            // Create a JSON payload with your message
+            var payload = JSON.stringify({
+                content: "Hi from the button!"
+            });
+
+            // Send a POST request to the webhook URL
+            $.ajax({
+                type: "POST",
+                url: webhookUrl,
+                contentType: "application/json",
+                data: payload,
+                success: function () {
+                    alert("Message sent to Discord!");
+                },
+                error: function (error) {
+                    console.error("Error sending message:", error);
+                    alert("Failed to send message to Discord.");
+                }
+            });
+        }
+
+        // Attach click event to the button
+        $(document).ready(function() {
+            $("#discordButton").click(function() {
+                sendWebhook();
+            });
+        });
+    </script>
 <br>
 <div class="box1">
 <a href="https://example.com/"><button><div class="box">Picnic<img src="imgs/picnic.jpg" alt="picnic"> </div></button></a>
