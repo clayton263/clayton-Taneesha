@@ -16,4 +16,4 @@ jobs:
         env:
           WEBHOOK_URL: ${{ secrets.DISCORD_WEBHOOK_URL }}
         run: |
-          curl -H "Content-Type: application/json" -X POST -d '{"content":"Form data: ${{ github.event_name }}"}' $WEBHOOK_URL
+          curl -H "Content-Type: application/json" -X POST -d '{"content":"Test worked"}' $WEBHOOK_URL
