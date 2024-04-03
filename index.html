@@ -7,40 +7,6 @@
 </div>
 	<link rel="stylesheet" href="stylesheet.css">
 </header>
- 
-<br>
-<br>
-<br>
-<script>
-        const triggerButton = document.getElementById("triggerButton");
-
-        triggerButton.addEventListener("click", async () => {
-            try {
-                const response = await fetch('/.github/workflows/discord-notification.yml', {
-                    method: 'POST',
-                    headers: {
-                        'Content-Type': 'application/json',
-                        'Accept': 'application/vnd.github.everest-preview+json',
-                        'Authorization': 'token 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'
-                    },
-                    body: JSON.stringify({
-                        event_type: 'trigger_discord_comment'
-                    })
-                });
-
-                if (response.ok) {
-                    alert('GitHub Actions workflow triggered successfully!');
-                } else {
-                    alert('Failed to trigger GitHub Actions workflow.');
-                }
-            } catch (error) {
-                console.error('Error triggering GitHub Actions workflow:', error);
-            }
-        });
-    </script>
-<br>
-<br>
-<br>
 <body>
 <br>
  <button id="triggerButton">Trigger Action</button>
