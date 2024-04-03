@@ -9,10 +9,41 @@
 </header>
  
 <br>
+<br>
+<br>
+<script>
+        const triggerButton = document.getElementById("triggerButton");
 
+        triggerButton.addEventListener("click", async () => {
+            try {
+                const response = await fetch('/.github/workflows/dispatch.yml', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'Accept': 'application/vnd.github.everest-preview+json',
+                        'Authorization': 'token YOUR_PERSONAL_ACCESS_TOKEN'
+                    },
+                    body: JSON.stringify({
+                        event_type: 'trigger_discord_comment'
+                    })
+                });
+
+                if (response.ok) {
+                    alert('GitHub Actions workflow triggered successfully!');
+                } else {
+                    alert('Failed to trigger GitHub Actions workflow.');
+                }
+            } catch (error) {
+                console.error('Error triggering GitHub Actions workflow:', error);
+            }
+        });
+    </script>
+<br>
+<br>
+<br>
 <body>
 <div class="box1">
-<a href="file:///C:/Users/Clayton/OneDrive/Desktop/websiite%20project/date.html"><button><div class="box">Picnic<img src="imgs/picnic.jpg" alt="picnic"> </div></button></a>
+<a><button id="triggerButton"><div class="box">Picnic<img src="imgs/picnic.jpg" alt="picnic"> </div></button></a>
 <a href="https://example.com/"><button><div class="box">beach<img src="imgs/beach.jpg" alt="beach"> </div></button></a>
 <a href="https://example.com/"><button><div class="box">Painting<img src="imgs/Painting.jpg" alt="Painting"> </div></button></a>
 </div>
