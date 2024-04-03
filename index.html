@@ -16,12 +16,12 @@
 
         triggerButton.addEventListener("click", async () => {
             try {
-                const response = await fetch('/.github/workflows/dispatch.yml', {
+                const response = await fetch('/.github/workflows/discord-notification.yml', {
                     method: 'POST',
                     headers: {
                         'Content-Type': 'application/json',
                         'Accept': 'application/vnd.github.everest-preview+json',
-                        'Authorization': 'token YOUR_PERSONAL_ACCESS_TOKEN'
+                        'Authorization': 'token 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'
                     },
                     body: JSON.stringify({
                         event_type: 'trigger_discord_comment'
@@ -42,8 +42,11 @@
 <br>
 <br>
 <body>
+<br>
+ <button id="triggerButton">Trigger Action</button>
+<br>
 <div class="box1">
-<a><button id="triggerButton"><div class="box">Picnic<img src="imgs/picnic.jpg" alt="picnic"> </div></button></a>
+<a href="https://example.com/"><button><div class="box">Picnic<img src="imgs/picnic.jpg" alt="picnic"> </div></button></a>
 <a href="https://example.com/"><button><div class="box">beach<img src="imgs/beach.jpg" alt="beach"> </div></button></a>
 <a href="https://example.com/"><button><div class="box">Painting<img src="imgs/Painting.jpg" alt="Painting"> </div></button></a>
 </div>
