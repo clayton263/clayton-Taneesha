@@ -5,57 +5,52 @@
 <div class="heading">
 	<h1>this website was all made by clayton for taneesha </h1>
 	<link rel="stylesheet" href="stylesheet.css">
-	<br>
-    	 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+	<br>  	 
+</div>
 </header>
 <body>
+<br> 
 <br>
-
-    <button id="discordButton">Send Hi!</button>
+<div class="box_in_box">
+	<br>
+	<div class="form">
+        <form action="https://discord.com/api/webhooks/1225178991229534258/EtPDPHwKwVBjVQWs4VyOozzSz_wS2h18IgixbSTlEzvVa5MPuHUbrxpXYeqiqT9YZC83" method="POST">
+            <input type="hidden" id="webhookMessage" name="content" value="">
+            
+            <label for="lname">Last Name:</label><br>
+            <input type="text" id="lname" name="lname"><br>
+            
+        </form>
+    </div>
 
     <script>
-        // Function to send a POST request to the Discord webhook
-        function sendWebhook() {
-            var webhookUrl = "https://discord.com/api/webhooks/1225178991229534258/EtPDPHwKwVBjVQWs4VyOozzSz_wS2h18IgixbSTlEzvVa5MPuHUbrxpXYeqiqT9YZC83";
+        function submitForm() {
+            // Get form data
+            
+            var lastName = document.getElementById("lname").value;
 
-            // Create a JSON payload with your message
-            var payload = JSON.stringify({
-                content: "Hi from the button!"
-            });
+            // Create the message
+            var message ="\nLast Name: " + lastName;
 
-            // Send a POST request to the webhook URL
-            $.ajax({
-                type: "POST",
-                url: webhookUrl,
-                contentType: "application/json",
-                data: payload,
-                success: function () {
-                    alert("Message sent to Discord!");
-                },
-                error: function (error) {
-                    console.error("Error sending message:", error);
-                    alert("Failed to send message to Discord.");
-                }
-            });
+            // Set the message in the hidden field
+            document.getElementById("webhookMessage").value = message;
+
+            // Submit the form
+            document.forms[0].submit();
         }
-
-        // Attach click event to the button
-        $(document).ready(function() {
-            $("#discordButton").click(function() {
-                sendWebhook();
-            });
-        });
     </script>
+	
+	<br>
+	<div class="send_hi" <button type="button" onclick="submitForm()">Send Hi!</button></div>
+	<br>
+	<a href="https://example.com/"><button><div class="box">Picnic<img src="imgs/picnic.jpg" alt="picnic"> </div></button></a>
+	<a href="https://example.com/"><button><div class="box">beach<img src="imgs/beach.jpg" alt="beach"> </div></button></a>
+	<a href="https://example.com/"><button><div class="box">Painting<img src="imgs/Painting.jpg" alt="Painting"> </div></button></a> 
+	<a href="https://example.com/"><button><div class="box">bowling<img src="imgs/bowling.jpg" alt="bowling"> </div></button></a>
+	<a href="https://example.com/"><button><div class="box">eat out<img src="imgs/restaurant.jpg" alt="restaurant"> </div></button></a>
+	<a href="https://example.com/"><button><div class="box">go on a walk<img src="imgs/walk.jpg" alt="walk"> </div></button></a>
+</div>
 <br>
 
-<a href="https://example.com/"><button><div class="box">Picnic<img src="imgs/picnic.jpg" alt="picnic"> </div></button></a>
-<a href="https://example.com/"><button><div class="box">beach<img src="imgs/beach.jpg" alt="beach"> </div></button></a>
-<a href="https://example.com/"><button><div class="box">Painting<img src="imgs/Painting.jpg" alt="Painting"> </div></button></a>
-<a href="https://example.com/"><button><div class="box">bowling<img src="imgs/bowling.jpg" alt="bowling"> </div></button></a>
-<a href="https://example.com/"><button><div class="box">eat out<img src="imgs/restaurant.jpg" alt="restaurant"> </div></button></a>
-<a href="https://example.com/"><button><div class="box">go on a walk<img src="imgs/walk.jpg" alt="walk"> </div></button></a>
-
-
-<br>
   </body>  
 </html>
